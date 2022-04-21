@@ -9,6 +9,7 @@ import java.io.ObjectOutputStream;
 import PaqC01.*;
 import java.io.*;
 
+
 public class Reservas extends JFrame{
 
     private JTextField textNombre;
@@ -309,6 +310,7 @@ public class Reservas extends JFrame{
                     JOptionPane.showMessageDialog(null,"No se ha podido anular la reserva.","Reserva", JOptionPane.INFORMATION_MESSAGE);
 
 
+
                  */
                 try {
                     salida.writeObject(h1);
@@ -323,15 +325,3 @@ public class Reservas extends JFrame{
         });
     }
 }
-/*
-    File -> Project Structure -> Artifacts -> + -> JAR -> From modules with dependencies... -> OK -> OK -> Build arriba -> Build artifacts -> Build
-    Está en out/artifacts/... y eso lo meto en el hotel fuera del src
-
-    File - Proyect Structure - Artefactos - + - From modules with... - OK - OK - Build - Construir Artefctos - Construir
-    Carpeta del .jar - buscar el .jar - copiarlo y pegarlo en la carpeta del Swing - En intellij, click derecho y añadir como libreria
-    import el paquete de las clases
-
-
-    Para los commits
-    Boton del commit - ponerle nombre - commit lo que quiera - commit anyways - darle al push una vez hechos los cambios
- */
