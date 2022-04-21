@@ -1,5 +1,6 @@
 package Ventanas;
 
+import javax.management.StringValueExp;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -34,6 +35,7 @@ public class Reservas extends JFrame{
     private JPanel reservas;
     private JTextArea mapaDelHotel;
     private JButton AnularBoton;
+    private JButton botonExamen;
 
     private static Hotel h1;
     private Cliente c1;
@@ -320,6 +322,30 @@ public class Reservas extends JFrame{
                 }
 
                 mapaDelHotel.setText(h1.toString());
+
+            }
+        });
+        botonExamen.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String dni=textDNI.getText();
+
+                Cliente c= new Cliente();
+
+                if(h1.devuelveCliente(dni)!=null){
+                    c=h1.devuelveCliente(dni);
+
+                    textNombre.setText(c.getNombre());
+                    textApellidos.setText(c.getApellido());
+                    textDNI.setText(c.getDni());
+                    textTeléfono.setText(String.valueOf(c.getTelefono()));
+                    textTarjeta.setText(String.valueOf(c.getTarjeta()));
+                    textFechaEntrada.setText(String.valueOf(c.getFechaEntrada()));
+                    textFechaSalida.setText(String.valueOf(c.getFechaSalida()));
+
+                }
+                else if(h1.devuelveCliente(dni)==null)JOptionPane.showMessageDialog(null,"El cliente no tiene reservas en el hotel","Error",JOptionPane.INFORMATION_MESSAGE);
+
 
             }
         });
